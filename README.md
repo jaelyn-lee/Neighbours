@@ -1,8 +1,8 @@
-# Boilerplate: Fullstack with Sass
+# Neighbours - connect with your neighbours with your neighbours build a good connection
 
 ## Setup
 
-### What's included
+### .ENV file
 
 This repo includes:
 
