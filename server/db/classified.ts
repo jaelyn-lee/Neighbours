@@ -4,7 +4,7 @@ import {
   ClaRequestDataBackend,
   newRequestToBackend,
 } from '../../models/classified'
-import { AnswersToBackend } from '../../models/comments'
+import { AddAnswer, AnswersToBackend } from '../../models/comments'
 
 export async function getAllClassificationsByLocation(locationId: number) {
   return (await db('classified_request')
@@ -97,7 +97,7 @@ export function addAnswer(answer: AnswersToBackend) {
   return db('classified_request_answers').insert(answer)
 }
 
-export function updateAnswer(UpdatedAnswer: PostAnswers, id: number) {
+export function updateAnswer(UpdatedAnswer: AddAnswer, id: number) {
   const newObj = { ...UpdatedAnswer }
 
   return db('classified_request_answers').where('id', id).update(newObj)

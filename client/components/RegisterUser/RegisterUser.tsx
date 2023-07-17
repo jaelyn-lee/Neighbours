@@ -10,9 +10,12 @@ function RegisterUser() {
   const { user, getAccessTokenSilently } = useAuth0()
 
   // calls the locations
-  const { isLoading, data } = useQuery('fetchLocations', async () => {
-    return await fetchLocations()
-  })
+  const { isLoading, data: locationData } = useQuery(
+    'fetchLocations',
+    async () => {
+      return await fetchLocations()
+    }
+  )
 
   const navigate = useNavigate()
   const [userData, setUserData] = useState<UserData>({
@@ -31,7 +34,6 @@ function RegisterUser() {
       upsertProfile(userData, token),
     onSuccess: async () => {
       console.log('added, I am in the mutation')
-      // queryClient.invalidateQueries('getUsers')
     },
   })
   useEffect(() => {
@@ -72,7 +74,7 @@ function RegisterUser() {
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
 
-    const location = data?.find(
+    const location = locationData?.find(
       (location) => location.id === userData.location_id
     )
     const userLocationId = location?.id
@@ -182,8 +184,8 @@ function RegisterUser() {
           >
             <option value="">Select location</option>
             {!isLoading &&
-              data &&
-              data.map((suburb) => (
+              locationData &&
+              locationData.map((suburb) => (
                 <option key={suburb.id} value={suburb.id}>
                   {suburb.name}
                 </option>
