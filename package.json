@@ -13,8 +13,9 @@
     "dev:client": "vite",
     "dev:server": "nodemon --watch server/",
     "dev:css": "tailwindcss -i ./client/styles/index.css -o ./public/output.css --watch",
-    "build": "npm i",
-    
+    "build": "run-s build:client build:server",
+    "build:client": "vite build",
+    "build:server": "tsc -p server/tsconfig.json",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
     "knex": "knex --knexfile ./server/db/knexfile.js"
   },
