@@ -9,11 +9,11 @@
   "scripts": {
     "start": "node dist/server/index.js",
     "test": "vitest",
-    "dev": "run-p dev:client dev:server dev:css",
+    "dev": "npm-run-all dev:client dev:server dev:css",
     "dev:client": "vite",
     "dev:server": "nodemon --watch server/",
     "dev:css": "tailwindcss -i ./client/styles/index.css -o ./public/output.css --watch",
-    "build": "run-s build:client build:server",
+    "build": "npm-run-all build:client build:server",
     "build:client": "vite build",
     "build:server": "tsc -p server/tsconfig.json",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
@@ -84,12 +84,15 @@
     "ts-node": "^10.9.1",
     "typescript": "~4.8.4",
     "vite": "^4.3.3",
-    "vitest": "^0.30.1",
-    "npm": "9.5.1"
+    "vitest": "^0.30.1"
   },
   "prettier": {
     "semi": false,
     "singleQuote": true
   },
-  "browserslist": "> 2%, not dead"
+  "browserslist": "> 2%, not dead",
+  "engines": {
+    "node": "14.x",
+    "npm": "7.x"
+  }
 }
