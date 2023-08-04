@@ -13,12 +13,13 @@
     "dev:client": "vite",
     "dev:server": "nodemon --watch server/",
     "dev:css": "tailwindcss -i ./client/styles/index.css -o ./public/output.css --watch",
-    "build": "build:client",
+    "build": "npm-run-all build:client build:server",
     "build:client": "vite build",
     "build:server": "tsc -p server/tsconfig.json",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
     "knex": "knex --knexfile ./server/db/knexfile.js"
   },
+  
   "eslintConfig": {
     "extends": "@devacademy/eslint-config/react",
     "ignorePatterns": [
