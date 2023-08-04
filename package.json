@@ -13,7 +13,7 @@
     "dev:client": "vite",
     "dev:server": "nodemon --watch server/",
     "dev:css": "tailwindcss -i ./client/styles/index.css -o ./public/output.css --watch",
-    "build": "npm-run-all build:client build:server",
+    "build": "build:client",
     "build:client": "vite build",
     "build:server": "tsc -p server/tsconfig.json",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
