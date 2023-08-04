@@ -8,4 +8,5 @@ server/public/styles.css.map
 tags
 output.css
 package-lock.json
+.env
 
