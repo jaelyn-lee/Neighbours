@@ -9,16 +9,17 @@
   "scripts": {
     "start": "node dist/server/index.js",
     "test": "vitest",
-    "dev": "npm-run-all dev:client dev:server dev:css",
+    "dev": "npm-run dev:client & npm-run dev:server & npm-run dev:css",
     "dev:client": "vite",
     "dev:server": "nodemon --watch server/",
     "dev:css": "tailwindcss -i ./client/styles/index.css -o ./public/output.css --watch",
-    "build": "npm-run-all build:client build:server",
+    "build": "npm-run build:client & npm-run build:server",
     "build:client": "vite build",
     "build:server": "tsc -p server/tsconfig.json",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx .",
     "knex": "knex --knexfile ./server/db/knexfile.js"
   },
+  
   
   "eslintConfig": {
     "extends": "@devacademy/eslint-config/react",
